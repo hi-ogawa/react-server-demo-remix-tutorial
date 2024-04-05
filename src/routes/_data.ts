@@ -1,6 +1,6 @@
 import { tinyassert } from "@hiogawa/utils";
 
-// verify this only lives on the server
+// verify the data accessed only on the server
 tinyassert(typeof document === "undefined");
 
 type ContactMutation = {

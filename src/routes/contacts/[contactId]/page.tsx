@@ -1,16 +1,11 @@
-"use client";
+import { createError, type PageProps } from "@hiogawa/react-server/server";
+import { getContact, type ContactRecord } from "../../_data";
 
-import type { ContactRecord } from "../../_data";
-
-export default function Contact() {
-  const contact = {
-    first: "Your",
-    last: "Name",
-    avatar: "https://placekitten.com/g/200/200",
-    twitter: "your_handle",
-    notes: "Some notes",
-    favorite: true,
-  };
+export default async function Contact(props: PageProps) {
+  const contact = await getContact(props.params["contactId"]);
+  if (!contact) {
+    throw createError({ status: 404 });
+  }
 
   return (
     <div id="contact">
@@ -52,14 +47,14 @@ export default function Contact() {
           <form
             action="destroy"
             method="post"
-            onSubmit={(event) => {
-              const response = confirm(
-                "Please confirm you want to delete this record.",
-              );
-              if (!response) {
-                event.preventDefault();
-              }
-            }}
+            // onSubmit={(event) => {
+            //   const response = confirm(
+            //     "Please confirm you want to delete this record.",
+            //   );
+            //   if (!response) {
+            //     event.preventDefault();
+            //   }
+            // }}
           >
             <button type="submit">Delete</button>
           </form>
@@ -69,10 +64,8 @@ export default function Contact() {
   );
 }
 
-const Favorite: React.FC<{
-  contact: Pick<ContactRecord, "favorite">;
-}> = ({ contact }) => {
-  const favorite = contact.favorite;
+function Favorite(props: { contact: ContactRecord }) {
+  const favorite = props.contact.favorite;
 
   return (
     <form method="post">
@@ -85,4 +78,4 @@ const Favorite: React.FC<{
       </button>
     </form>
   );
-};
+}

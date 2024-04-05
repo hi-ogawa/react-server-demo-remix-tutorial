@@ -1,5 +1,6 @@
 import { Link } from "@hiogawa/react-server/client";
 import { getContacts } from "./_data";
+import { actionNewContact } from "./_action";
 
 export default async function Layout(props: React.PropsWithChildren) {
   const contacts = await getContacts();
@@ -25,7 +26,9 @@ export default async function Layout(props: React.PropsWithChildren) {
               />
               <div aria-hidden hidden={true} id="search-spinner" />
             </form>
-            <form method="post">
+            {/* TODO: better error message when forgot to add `action`? */}
+            {/* TODO: layout doesn't invalidate when adding a new contact */}
+            <form action={actionNewContact}>
               <button type="submit">New</button>
             </form>
           </div>
