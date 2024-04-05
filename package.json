@@ -7,6 +7,10 @@
     "dev": "vite dev",
     "build": "vite build && vite build --ssr",
     "preview": "vite preview",
+    "tsc": "tsc -b",
+    "tsc-dev": "pnpm tsc --watch --preserveWatchOutput",
+    "lint": "prettier -w --cache .",
+    "lint-check": "prettier -c --cache .",
     "cf-build": "SSR_ENTRY=/src/adapters/cloudflare-workers.ts pnpm build && bash misc/cloudflare-workers/build.sh",
     "cf-preview": "cd misc/cloudflare-workers && wrangler dev",
     "cf-release": "cd misc/cloudflare-workers && wrangler deploy"
@@ -23,6 +27,8 @@
     "@types/react": "18.2.66",
     "@types/react-dom": "18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.4",
     "vite": "latest"
   }
 }

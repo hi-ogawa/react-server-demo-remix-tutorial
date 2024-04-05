@@ -18,11 +18,7 @@ export default function Layout(props: React.PropsWithChildren) {
                 placeholder="Search"
                 type="search"
               />
-              <div
-                aria-hidden
-                hidden={true}
-                id="search-spinner"
-              />
+              <div aria-hidden hidden={true} id="search-spinner" />
             </form>
             <form method="post">
               <button type="submit">New</button>
