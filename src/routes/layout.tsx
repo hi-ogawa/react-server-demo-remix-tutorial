@@ -1,5 +1,3 @@
-import { Link } from "@hiogawa/react-server/client";
-
 export default function Layout(props: React.PropsWithChildren) {
   return (
     <html>
@@ -9,26 +7,38 @@ export default function Layout(props: React.PropsWithChildren) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
-        <h3>React Server Starter</h3>
-        <a
-          href="https://github.com/hi-ogawa/vite-plugins/tree/main/packages/react-server"
-          target="_blank"
-        >
-          GitHub
-        </a>
-        <nav>
-          <ul>
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li>
-              <Link href="/use-state">Counter (useState)</Link>
-            </li>
-            <li>
-              <Link href="/server-action">Counter (server action)</Link>
-            </li>
-          </ul>
-        </nav>
+        <div id="sidebar">
+          <h1>Remix Contacts</h1>
+          <div>
+            <form id="search-form" role="search">
+              <input
+                aria-label="Search contacts"
+                id="q"
+                name="q"
+                placeholder="Search"
+                type="search"
+              />
+              <div
+                aria-hidden
+                hidden={true}
+                id="search-spinner"
+              />
+            </form>
+            <form method="post">
+              <button type="submit">New</button>
+            </form>
+          </div>
+          <nav>
+            <ul>
+              <li>
+                <a href={`/contacts/1`}>Your Name</a>
+              </li>
+              <li>
+                <a href={`/contacts/2`}>Your Friend</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
         {props.children}
       </body>
     </html>
