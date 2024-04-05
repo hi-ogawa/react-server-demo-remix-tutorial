@@ -22,6 +22,9 @@ devDependencies:
   '@hattip/adapter-node':
     specifier: ^0.0.44
     version: 0.0.44
+  '@hiogawa/utils':
+    specifier: 1.6.4-pre.2
+    version: 1.6.4-pre.2
   '@hiogawa/vite-plugin-ssr-middleware':
     specifier: latest
     version: 0.0.3(vite@5.2.8)
@@ -507,6 +510,10 @@ packages:
       use-sync-external-store: 1.2.0(react@18.3.0-canary-14898b6a9-20240318)
       vite: 5.2.8
     dev: false
+
+  /@hiogawa/utils@1.6.4-pre.2:
+    resolution: {integrity: sha512-t49f46YPtqOBHWdceDX1PKK8dhIemFzNCFx2KtfCVUx0W4rZ4TtAyVAKbh7mJmLh/yITr3gNb0SxkfNyOZy0hQ==}
+    dev: true
 
   /@hiogawa/vite-plugin-ssr-middleware@0.0.3(vite@5.2.8):
     resolution: {integrity: sha512-84bzaAuImty4s4vHjOk5MQMzmDs0W0GP43fOTFhsBfj/MSJCNJ68elmPNZWs57WkIEzcdB4haY/P8Nf4ZGH8Qw==}

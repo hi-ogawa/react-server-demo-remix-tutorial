@@ -1,4 +1,9 @@
-export default function Layout(props: React.PropsWithChildren) {
+import { Link } from "@hiogawa/react-server/client";
+import { getContacts } from "./_data";
+
+export default async function Layout(props: React.PropsWithChildren) {
+  const contacts = await getContacts();
+
   return (
     <html>
       <head>
@@ -25,17 +30,31 @@ export default function Layout(props: React.PropsWithChildren) {
             </form>
           </div>
           <nav>
-            <ul>
-              <li>
-                <a href={`/contacts/1`}>Your Name</a>
-              </li>
-              <li>
-                <a href={`/contacts/2`}>Your Friend</a>
-              </li>
-            </ul>
+            {contacts.length > 0 ? (
+              <ul>
+                {contacts.map((contact) => (
+                  <li key={contact.id}>
+                    <Link href={`/contacts/${contact.id}`}>
+                      {contact.first || contact.last ? (
+                        <>
+                          {contact.first} {contact.last}
+                        </>
+                      ) : (
+                        <i>No Name</i>
+                      )}{" "}
+                      {contact.favorite ? <span>★</span> : null}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>
+                <i>No contacts</i>
+              </p>
+            )}
           </nav>
         </div>
-        {props.children}
+        <div id="detail">{props.children}</div>
       </body>
     </html>
   );
