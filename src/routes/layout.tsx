@@ -14,7 +14,9 @@ export default async function Layout(props: React.PropsWithChildren) {
       </head>
       <body>
         <div id="sidebar">
-          <h1>Remix Contacts</h1>
+          <h1>
+            <Link href="/">Remix Contacts</Link>
+          </h1>
           <div>
             <form id="search-form" role="search">
               <input
@@ -37,6 +39,7 @@ export default async function Layout(props: React.PropsWithChildren) {
               <ul>
                 {contacts.map((contact) => (
                   <li key={contact.id}>
+                    {/* TODO: encoding /contacts/kent%20c.-dodds */}
                     <Link href={`/contacts/${contact.id}`}>
                       {contact.first || contact.last ? (
                         <>
