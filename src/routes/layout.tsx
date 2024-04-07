@@ -47,8 +47,7 @@ export default async function Layout(props: LayoutProps) {
               <ul>
                 {contacts.map((contact) => (
                   <li key={contact.id}>
-                    {/* TODO: encoding /contacts/kent%20c.-dodds */}
-                    {/* TODO: functional `className` prop cannot used for server/client boundary */}
+                    {/* NOTE: functional `className` prop cannot used for server/client boundary */}
                     <NavLink href={`/contacts/${contact.id}`}>
                       {contact.first || contact.last ? (
                         <>
