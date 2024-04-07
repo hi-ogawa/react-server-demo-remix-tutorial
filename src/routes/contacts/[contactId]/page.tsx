@@ -4,13 +4,14 @@ import { Link } from "@hiogawa/react-server/client";
 import { actionDeleteContact, actoinFavorite } from "../../_action";
 
 export default async function Contact(props: PageProps) {
-  const contact = await getContact(props.params["contactId"]);
+  // TODO: fix decoding
+  const contact = await getContact(decodeURI(props.params["contactId"]));
   if (!contact) {
     throw createError({ status: 404 });
   }
 
   return (
-    <div id="contact">
+    <div key={contact.id} id="contact">
       <div>
         <img
           alt={`${contact.first} ${contact.last} avatar`}
