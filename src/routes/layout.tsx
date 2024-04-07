@@ -70,6 +70,7 @@ export default async function Layout(props: LayoutProps) {
         </div>
         <div id="detail" style={{ position: "relative" }}>
           {props.children}
+          {/* pending state needs to move off to client component */}
           <GlobalPendingOverlay />
         </div>
       </body>
