@@ -1,6 +1,7 @@
 import { createError, type PageProps } from "@hiogawa/react-server/server";
 import { getContact } from "../../../_data";
 import { actionUpdateContact } from "../../../_action";
+import { BackButton } from "./_client";
 
 export default async function EditContact(props: PageProps) {
   const contact = await getContact(props.params["contactId"]);
@@ -53,7 +54,7 @@ export default async function EditContact(props: PageProps) {
       </label>
       <p>
         <button type="submit">Save</button>
-        <button type="button">Cancel</button>
+        <BackButton type="button">Cancel</BackButton>
       </p>
     </form>
   );
