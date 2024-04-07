@@ -59,7 +59,11 @@ export const fakeContacts = {
 ////////////////////////////////////////////////////////////////////////////////
 // Handful of helper functions to be called from route loaders and actions
 export async function getContacts(query?: string | null) {
-  // await new Promise((resolve) => setTimeout(resolve, 500));
+  const slowMo = globalThis.process?.env["DEBUG_SLOW_MO"];
+  if (slowMo) {
+    await new Promise((resolve) => setTimeout(resolve, Number(slowMo)));
+  }
+
   let contacts = await fakeContacts.getAll();
   if (query) {
     const q = query.toLowerCase();

@@ -16,7 +16,7 @@ export function GlobalPendingOverlay() {
     <div
       style={{
         pointerEvents: "none",
-        opacity: isPending ? 0.3 : 0,
+        opacity: isPending ? 0.5 : 0,
         transition: "opacity 200ms",
         transitionDelay: "200ms",
         background: "#fff",
