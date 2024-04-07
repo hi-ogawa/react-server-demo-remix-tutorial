@@ -22,7 +22,8 @@ export async function actionUpdateContact(
   throw redirect(`/contacts/${contact.id}`);
 }
 
-export async function actoinFavorite(formData: FormData) {
+export async function actoinFavorite(this: ActionContext, formData: FormData) {
+  this.revalidate = true;
   const data = Object.fromEntries(formData) as any;
   const contact = await fakeContacts.get(data.id);
   tinyassert(contact);
@@ -45,6 +46,7 @@ export async function actionDeleteContact(
   // TODO
   // action response stream renders `src/routes/contacts/[contactId]/page.tsx`
   // but contact doesn't exists anymore and server component throws,
-  // which makes this redirect error to not caught by client?
+  // which makes this redirect error to not caught by client
+  // when users don't have custom error page
   throw redirect("/");
 }
