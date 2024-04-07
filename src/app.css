@@ -195,14 +195,15 @@ body {
   float: right;
   color: #eeb004;
 }
-#sidebar nav a.active span {
+/* NOTE: use aria-current="page" for NavLink */
+#sidebar nav a[aria-current="page"] span {
   color: inherit;
 }
 
 i {
   color: #818181;
 }
-#sidebar nav .active i {
+#sidebar nav a[aria-current="page"] i {
   color: inherit;
 }
 
@@ -235,7 +236,7 @@ i {
   background: #e3e3e3;
 }
 
-#sidebar nav a.active {
+#sidebar nav a[aria-current="page"] {
   background: hsl(224, 98%, 58%);
   color: white;
 }
