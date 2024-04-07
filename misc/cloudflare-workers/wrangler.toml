@@ -1,4 +1,4 @@
-name = "react-server-starter"
+name = "react-server-demo-remix-tutorial"
 
 main = "dist/server/index.js"
 assets = "dist/client"

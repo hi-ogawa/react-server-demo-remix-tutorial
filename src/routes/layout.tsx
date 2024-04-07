@@ -1,6 +1,13 @@
-import { Link } from "@hiogawa/react-server/client";
+import { Link, LinkForm } from "@hiogawa/react-server/client";
+import { getContacts } from "./_data";
+import { actionCreateNewContact } from "./_action";
+import type { LayoutProps } from "@hiogawa/react-server/server";
+import { GlobalPendingOverlay, NavLink } from "./_client";
 
-export default function Layout(props: React.PropsWithChildren) {
+export default async function Layout(props: LayoutProps) {
+  const q = new URLSearchParams(props.url.search).get("q");
+  const contacts = await getContacts(q);
+
   return (
     <html>
       <head>
@@ -9,27 +16,63 @@ export default function Layout(props: React.PropsWithChildren) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
-        <h3>React Server Starter</h3>
-        <a
-          href="https://github.com/hi-ogawa/vite-plugins/tree/main/packages/react-server"
-          target="_blank"
-        >
-          GitHub
-        </a>
-        <nav>
-          <ul>
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li>
-              <Link href="/use-state">Counter (useState)</Link>
-            </li>
-            <li>
-              <Link href="/server-action">Counter (server action)</Link>
-            </li>
-          </ul>
-        </nav>
-        {props.children}
+        <div id="sidebar">
+          <h1 style={{ display: "flex" }}>
+            <Link href="/">Remix Contacts</Link>
+            <span style={{ flex: "1 0 0" }}></span>
+            <a
+              href="https://github.com/hi-ogawa/react-server-demo-remix-tutorial"
+              target="_blank"
+            >
+              Code
+            </a>
+          </h1>
+          <div>
+            <LinkForm action="/" id="search-form" role="search" revalidate>
+              <input
+                aria-label="Search contacts"
+                id="q"
+                name="q"
+                placeholder="Search"
+                type="search"
+              />
+              <div aria-hidden hidden={true} id="search-spinner" />
+            </LinkForm>
+            <form action={actionCreateNewContact}>
+              <button type="submit">New</button>
+            </form>
+          </div>
+          <nav>
+            {contacts.length > 0 ? (
+              <ul>
+                {contacts.map((contact) => (
+                  <li key={contact.id}>
+                    {/* NOTE: functional `className` prop cannot used for server/client boundary */}
+                    <NavLink href={`/contacts/${contact.id}`}>
+                      {contact.first || contact.last ? (
+                        <>
+                          {contact.first} {contact.last}
+                        </>
+                      ) : (
+                        <i>No Name</i>
+                      )}{" "}
+                      {contact.favorite ? <span>★</span> : null}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>
+                <i>No contacts</i>
+              </p>
+            )}
+          </nav>
+        </div>
+        <div id="detail" style={{ position: "relative" }}>
+          {props.children}
+          {/* pending state needs to move off to client component */}
+          <GlobalPendingOverlay />
+        </div>
       </body>
     </html>
   );

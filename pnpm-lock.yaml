@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@hiogawa/react-server':
-    specifier: latest
-    version: 0.1.14(react-dom@18.3.0-canary-14898b6a9-20240318)(react-server-dom-webpack@18.3.0-canary-14898b6a9-20240318)(react@18.3.0-canary-14898b6a9-20240318)(vite@5.2.8)
+    specifier: 0.1.15
+    version: 0.1.15(react-dom@18.3.0-canary-14898b6a9-20240318)(react-server-dom-webpack@18.3.0-canary-14898b6a9-20240318)(react@18.3.0-canary-14898b6a9-20240318)(vite@5.2.8)
   react:
     specifier: 18.3.0-canary-14898b6a9-20240318
     version: 18.3.0-canary-14898b6a9-20240318
@@ -22,6 +22,9 @@ devDependencies:
   '@hattip/adapter-node':
     specifier: ^0.0.44
     version: 0.0.44
+  '@hiogawa/utils':
+    specifier: 1.6.4-pre.2
+    version: 1.6.4-pre.2
   '@hiogawa/vite-plugin-ssr-middleware':
     specifier: latest
     version: 0.0.3(vite@5.2.8)
@@ -34,6 +37,15 @@ devDependencies:
   '@vitejs/plugin-react':
     specifier: ^4.2.1
     version: 4.2.1(vite@5.2.8)
+  esbuild:
+    specifier: ^0.20.2
+    version: 0.20.2
+  prettier:
+    specifier: ^3.2.5
+    version: 3.2.5
+  typescript:
+    specifier: ^5.4.4
+    version: 5.4.4
   vite:
     specifier: latest
     version: 5.2.8
@@ -484,8 +496,8 @@ packages:
       mime-types: 2.1.35
     dev: true
 
-  /@hiogawa/react-server@0.1.14(react-dom@18.3.0-canary-14898b6a9-20240318)(react-server-dom-webpack@18.3.0-canary-14898b6a9-20240318)(react@18.3.0-canary-14898b6a9-20240318)(vite@5.2.8):
-    resolution: {integrity: sha512-Xi3HtaX7tTgAC+3m2ou3C1AUBd+xYqG1Jz/hZt6a2FyYapgRDBVh3pyVIoDJYX3wW1u4ot6FXgw7VO41AZMVAg==}
+  /@hiogawa/react-server@0.1.15(react-dom@18.3.0-canary-14898b6a9-20240318)(react-server-dom-webpack@18.3.0-canary-14898b6a9-20240318)(react@18.3.0-canary-14898b6a9-20240318)(vite@5.2.8):
+    resolution: {integrity: sha512-rh5CUa0JEA+WhB3I4vkYHRNL7t6r45X4kXWRqcihi3Gc2mQoXCpHyMt6Ido+PsQMVOyB9NW4DSiWHyVEgJuu3Q==}
     peerDependencies:
       react: 18.3.0-canary-14898b6a9-20240318
       react-dom: 18.3.0-canary-14898b6a9-20240318
@@ -501,6 +513,10 @@ packages:
       use-sync-external-store: 1.2.0(react@18.3.0-canary-14898b6a9-20240318)
       vite: 5.2.8
     dev: false
+
+  /@hiogawa/utils@1.6.4-pre.2:
+    resolution: {integrity: sha512-t49f46YPtqOBHWdceDX1PKK8dhIemFzNCFx2KtfCVUx0W4rZ4TtAyVAKbh7mJmLh/yITr3gNb0SxkfNyOZy0hQ==}
+    dev: true
 
   /@hiogawa/vite-plugin-ssr-middleware@0.0.3(vite@5.2.8):
     resolution: {integrity: sha512-84bzaAuImty4s4vHjOk5MQMzmDs0W0GP43fOTFhsBfj/MSJCNJ68elmPNZWs57WkIEzcdB4haY/P8Nf4ZGH8Qw==}
@@ -1343,6 +1359,12 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.2.0
 
+  /prettier@3.2.5:
+    resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
+
   /punycode@2.3.1:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
@@ -1386,7 +1408,7 @@ packages:
       neo-async: 2.6.2
       react: 18.3.0-canary-14898b6a9-20240318
       react-dom: 18.3.0-canary-14898b6a9-20240318(react@18.3.0-canary-14898b6a9-20240318)
-      webpack: 5.91.0
+      webpack: 5.91.0(esbuild@0.20.2)
     dev: false
 
   /react@18.3.0-canary-14898b6a9-20240318:
@@ -1501,7 +1523,7 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /terser-webpack-plugin@5.3.10(webpack@5.91.0):
+  /terser-webpack-plugin@5.3.10(esbuild@0.20.2)(webpack@5.91.0):
     resolution: {integrity: sha512-BKFPWlPDndPs+NGGCr1U59t0XScL5317Y0UReNrHaw9/FwhPENlq6bfgs+4yPfyP51vqC1bQ4rp1EfXW5ZSH9w==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -1518,11 +1540,12 @@ packages:
         optional: true
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
+      esbuild: 0.20.2
       jest-worker: 27.5.1
       schema-utils: 3.3.0
       serialize-javascript: 6.0.2
       terser: 5.30.3
-      webpack: 5.91.0
+      webpack: 5.91.0(esbuild@0.20.2)
     dev: false
 
   /terser@5.30.3:
@@ -1550,6 +1573,12 @@ packages:
 
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
+    dev: true
+
+  /typescript@5.4.4:
+    resolution: {integrity: sha512-dGE2Vv8cpVvw28v8HCPqyb08EzbBURxDpuhJvTrusShUfGnhHBafDsLdS1EhhxyL6BJQE+2cT3dDPAv+MQ6oLw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
     dev: true
 
   /undici-types@5.26.5:
@@ -1631,7 +1660,7 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: false
 
-  /webpack@5.91.0:
+  /webpack@5.91.0(esbuild@0.20.2):
     resolution: {integrity: sha512-rzVwlLeBWHJbmgTC/8TvAcu5vpJNII+MelQpylD4jNERPwpBJOE2lEcko1zJX3QJeLjTTAnQxn/OJ8bjDzVQaw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
@@ -1662,7 +1691,7 @@ packages:
       neo-async: 2.6.2
       schema-utils: 3.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.10(webpack@5.91.0)
+      terser-webpack-plugin: 5.3.10(esbuild@0.20.2)(webpack@5.91.0)
       watchpack: 2.4.1
       webpack-sources: 3.2.3
     transitivePeerDependencies:
