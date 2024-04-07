@@ -14,8 +14,10 @@ export default async function Contact(props: PageProps) {
       <div>
         <img
           alt={`${contact.first} ${contact.last} avatar`}
-          key={contact.avatar}
-          src={contact.avatar}
+          src={
+            contact.avatar ||
+            `https://avatar.vercel.sh/${contact.first}${contact.last}`
+          }
         />
       </div>
 
@@ -59,6 +61,7 @@ export default async function Contact(props: PageProps) {
 function Favorite(props: { contact: ContactRecord }) {
   const favorite = props.contact.favorite;
 
+  // TODO
   return (
     <form method="post">
       <button
