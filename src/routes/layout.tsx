@@ -1,9 +1,11 @@
 import { Link } from "@hiogawa/react-server/client";
 import { getContacts } from "./_data";
 import { actionNewContact } from "./_action";
+import type { LayoutProps } from "@hiogawa/react-server/server";
 
-export default async function Layout(props: React.PropsWithChildren) {
+export default async function Layout(props: LayoutProps) {
   const contacts = await getContacts();
+  props.url.search;
 
   return (
     <html>
@@ -18,7 +20,8 @@ export default async function Layout(props: React.PropsWithChildren) {
             <Link href="/">Remix Contacts</Link>
           </h1>
           <div>
-            <form id="search-form" role="search">
+            {/* TODO: GET form navigation */}
+            <form action="" id="search-form" role="search">
               <input
                 aria-label="Search contacts"
                 id="q"
