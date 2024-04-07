@@ -1,12 +1,11 @@
 import { Link, LinkForm } from "@hiogawa/react-server/client";
 import { getContacts } from "./_data";
-import { actionNewContact } from "./_action";
+import { actionCreateNewContact } from "./_action";
 import type { LayoutProps } from "@hiogawa/react-server/server";
 
 export default async function Layout(props: LayoutProps) {
-  const contacts = await getContacts();
-  // TODO: search
-  props.url.search;
+  const q = new URLSearchParams(props.url.search).get("q");
+  const contacts = await getContacts(q);
 
   return (
     <html>
@@ -31,7 +30,7 @@ export default async function Layout(props: LayoutProps) {
               />
               <div aria-hidden hidden={true} id="search-spinner" />
             </LinkForm>
-            <form action={actionNewContact}>
+            <form action={actionCreateNewContact}>
               <button type="submit">New</button>
             </form>
           </div>

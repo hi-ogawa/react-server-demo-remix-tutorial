@@ -325,22 +325,23 @@ i {
   flex-direction: column;
   gap: 1rem;
 }
-#contact-form > p:first-child {
+/* NOTE: originally first-child, which breaks when hidden $ACTION_ID input is injected */
+#contact-form > p:first-of-type {
   margin: 0;
   padding: 0;
 }
-#contact-form > p:first-child > :nth-child(2) {
+#contact-form > p:first-of-type > :nth-child(2) {
   margin-right: 1rem;
 }
-#contact-form > p:first-child,
+#contact-form > p:first-of-type,
 #contact-form label {
   display: flex;
 }
-#contact-form p:first-child span,
+#contact-form p:first-of-type span,
 #contact-form label span {
   width: 8rem;
 }
-#contact-form p:first-child input,
+#contact-form p:first-of-type input,
 #contact-form label input,
 #contact-form label textarea {
   flex-grow: 2;

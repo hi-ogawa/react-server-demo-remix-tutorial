@@ -1,5 +1,6 @@
 import { createError, type PageProps } from "@hiogawa/react-server/server";
 import { getContact } from "../../../_data";
+import { actionUpdateContact } from "../../../_action";
 
 export default async function EditContact(props: PageProps) {
   const contact = await getContact(props.params["contactId"]);
@@ -8,7 +9,8 @@ export default async function EditContact(props: PageProps) {
   }
 
   return (
-    <form key={contact.id} id="contact-form" method="post">
+    <form action={actionUpdateContact} key={contact.id} id="contact-form">
+      <input type="hidden" name="id" value={contact.id} />
       <p>
         <span>Name</span>
         <input

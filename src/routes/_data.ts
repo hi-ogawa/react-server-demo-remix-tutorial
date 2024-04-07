@@ -62,31 +62,16 @@ export async function getContacts(query?: string | null) {
   // await new Promise((resolve) => setTimeout(resolve, 500));
   let contacts = await fakeContacts.getAll();
   if (query) {
-    contacts.filter((c) => c.first?.includes(query) || c.last?.includes(query));
+    const q = query.toLowerCase();
+    contacts = contacts.filter((c) =>
+      [c.first, c.last].some((v) => v?.toLowerCase().includes(q)),
+    );
   }
   return contacts;
 }
 
-export async function createEmptyContact() {
-  const contact = await fakeContacts.create({});
-  return contact;
-}
-
 export async function getContact(id: string) {
   return fakeContacts.get(id);
-}
-
-export async function updateContact(id: string, updates: ContactMutation) {
-  const contact = await fakeContacts.get(id);
-  if (!contact) {
-    throw new Error(`No contact found for ${id}`);
-  }
-  await fakeContacts.set(id, { ...contact, ...updates });
-  return contact;
-}
-
-export async function deleteContact(id: string) {
-  fakeContacts.destroy(id);
 }
 
 [

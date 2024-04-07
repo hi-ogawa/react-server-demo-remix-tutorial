@@ -1,5 +1,7 @@
 import { createError, type PageProps } from "@hiogawa/react-server/server";
 import { getContact, type ContactRecord } from "../../_data";
+import { Link } from "@hiogawa/react-server/client";
+import { actionDeleteContact } from "../../_action";
 
 export default async function Contact(props: PageProps) {
   const contact = await getContact(props.params["contactId"]);
@@ -40,22 +42,12 @@ export default async function Contact(props: PageProps) {
         {contact.notes ? <p>{contact.notes}</p> : null}
 
         <div>
-          <form action="edit">
-            <button type="submit">Edit</button>
-          </form>
-
-          <form
-            action="destroy"
-            method="post"
-            // onSubmit={(event) => {
-            //   const response = confirm(
-            //     "Please confirm you want to delete this record.",
-            //   );
-            //   if (!response) {
-            //     event.preventDefault();
-            //   }
-            // }}
-          >
+          <Link href={`${props.url.pathname}/edit`}>
+            <button>Edit</button>
+          </Link>
+          {/* TODO: client component for `window.confirm` */}
+          <form action={actionDeleteContact}>
+            <input type="hidden" name="id" value={contact.id} />
             <button type="submit">Delete</button>
           </form>
         </div>
