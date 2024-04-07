@@ -14,7 +14,7 @@ pnpm build
 pnpm preview
 
 # deploy cloudflare workers
-npm i -D wrangler
+pnpm i -D wrangler
 pnpm cf-build
 pnpm cf-preview
 pnpm cf-release
