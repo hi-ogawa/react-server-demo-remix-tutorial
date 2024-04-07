@@ -60,6 +60,7 @@ export default async function Contact(props: PageProps) {
 }
 
 function Favorite(props: { contact: ContactRecord }) {
+  // TODO: optimistic
   const favorite = props.contact.favorite;
 
   return (

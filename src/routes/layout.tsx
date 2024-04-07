@@ -2,7 +2,7 @@ import { Link, LinkForm } from "@hiogawa/react-server/client";
 import { getContacts } from "./_data";
 import { actionCreateNewContact } from "./_action";
 import type { LayoutProps } from "@hiogawa/react-server/server";
-import { NavLink } from "./_client";
+import { GlobalPendingOverlay, NavLink } from "./_client";
 
 export default async function Layout(props: LayoutProps) {
   const q = new URLSearchParams(props.url.search).get("q");
@@ -68,7 +68,10 @@ export default async function Layout(props: LayoutProps) {
             )}
           </nav>
         </div>
-        <div id="detail">{props.children}</div>
+        <div id="detail" style={{ position: "relative" }}>
+          {props.children}
+          <GlobalPendingOverlay />
+        </div>
       </body>
     </html>
   );
