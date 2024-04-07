@@ -1,10 +1,11 @@
-import { Link } from "@hiogawa/react-server/client";
+import { Link, LinkForm } from "@hiogawa/react-server/client";
 import { getContacts } from "./_data";
 import { actionNewContact } from "./_action";
 import type { LayoutProps } from "@hiogawa/react-server/server";
 
 export default async function Layout(props: LayoutProps) {
   const contacts = await getContacts();
+  // TODO: search
   props.url.search;
 
   return (
@@ -20,8 +21,7 @@ export default async function Layout(props: LayoutProps) {
             <Link href="/">Remix Contacts</Link>
           </h1>
           <div>
-            {/* TODO: GET form navigation */}
-            <form action="" id="search-form" role="search">
+            <LinkForm action="/" id="search-form" role="search" revalidate>
               <input
                 aria-label="Search contacts"
                 id="q"
@@ -30,9 +30,7 @@ export default async function Layout(props: LayoutProps) {
                 type="search"
               />
               <div aria-hidden hidden={true} id="search-spinner" />
-            </form>
-            {/* TODO: better error message when forgot to add `action`? */}
-            {/* TODO: layout doesn't invalidate when adding a new contact */}
+            </LinkForm>
             <form action={actionNewContact}>
               <button type="submit">New</button>
             </form>
