@@ -22,6 +22,16 @@ export async function actionUpdateContact(
   throw redirect(`/contacts/${contact.id}`);
 }
 
+export async function actoinFavorite(formData: FormData) {
+  const data = Object.fromEntries(formData) as any;
+  const contact = await fakeContacts.get(data.id);
+  tinyassert(contact);
+  await fakeContacts.set(contact.id, {
+    ...contact,
+    favorite: data.favorite === "true",
+  });
+}
+
 export async function actionDeleteContact(
   this: ActionContext,
   formData: FormData,
