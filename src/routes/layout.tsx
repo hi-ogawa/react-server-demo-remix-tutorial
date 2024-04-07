@@ -17,8 +17,15 @@ export default async function Layout(props: LayoutProps) {
       </head>
       <body>
         <div id="sidebar">
-          <h1>
+          <h1 style={{ display: "flex" }}>
             <Link href="/">Remix Contacts</Link>
+            <span style={{ flex: "1 0 0" }}></span>
+            <a
+              href="https://github.com/hi-ogawa/react-server-demo-remix-tutorial"
+              target="_blank"
+            >
+              Code
+            </a>
           </h1>
           <div>
             <LinkForm action="/" id="search-form" role="search" revalidate>
