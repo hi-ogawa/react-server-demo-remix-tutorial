@@ -162,5 +162,6 @@ export async function deleteContact(id: string) {
   fakeContacts.create({
     ...contact,
     id: `${contact.first.toLowerCase()}-${contact.last.toLocaleLowerCase()}`,
+    avatar: contact.avatar.replace("sessionize.com", "cache.sessionize.com"),
   });
 });
