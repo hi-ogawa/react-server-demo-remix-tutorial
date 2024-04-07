@@ -1,12 +1,10 @@
-# react-server starter example
+# react-server-demo-remix-tutorial (wip)
 
-- https://react-server-starter.hiro18181.workers.dev/
+[`@hiogawa/react-server`](https://github.com/hi-ogawa/vite-plugins/tree/main/packages/react-server)
+port of
+[Remix Tutorial](https://github.com/remix-run/remix/blob/b07921efd5e8eed98e2996749852777c71bc3e50/docs/start/tutorial.md)
 
 ```sh
-# download template
-npx tiged hi-ogawa/vite-plugins/packages/react-server/examples/starter my-app
-cd my-app
-
 # development
 pnpm i
 pnpm dev
