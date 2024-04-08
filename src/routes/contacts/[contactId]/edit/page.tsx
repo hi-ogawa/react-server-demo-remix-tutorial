@@ -4,7 +4,7 @@ import { actionUpdateContact } from "../../../_action";
 import { BackButton } from "./_client";
 
 export default async function EditContact(props: PageProps) {
-  const contact = await getContact(decodeURI(props.params["contactId"]));
+  const contact = await getContact(props.params["contactId"]);
   if (!contact) {
     throw createError({ status: 404 });
   }
