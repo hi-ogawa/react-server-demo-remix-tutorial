@@ -2,7 +2,7 @@ import { Link, LinkForm } from "@hiogawa/react-server/client";
 import { getContacts } from "./_data";
 import { actionCreateNewContact } from "./_action";
 import type { LayoutProps } from "@hiogawa/react-server/server";
-import { GlobalPendingOverlay, NavLink } from "./_client";
+import { GlobalPendingOverlay } from "./_client";
 
 export default async function Layout(props: LayoutProps) {
   const q = new URLSearchParams(props.url.search).get("q");
@@ -47,9 +47,10 @@ export default async function Layout(props: LayoutProps) {
               <ul>
                 {contacts.map((contact) => (
                   <li key={contact.id}>
-                    {/* TODO: navlink not working on initial render? */}
-                    {/* NOTE: functional `className` prop cannot used for server/client boundary */}
-                    <NavLink href={`/contacts/${contact.id}`}>
+                    <Link
+                      href={`/contacts/${contact.id}`}
+                      activeProps={{ className: "active" }}
+                    >
                       {contact.first || contact.last ? (
                         <>
                           {contact.first} {contact.last}
@@ -58,7 +59,7 @@ export default async function Layout(props: LayoutProps) {
                         <i>No Name</i>
                       )}{" "}
                       {contact.favorite ? <span>★</span> : null}
-                    </NavLink>
+                    </Link>
                   </li>
                 ))}
               </ul>
