@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@hiogawa/react-server':
-    specifier: 0.1.17
-    version: 0.1.17(react-dom@18.3.0-canary-14898b6a9-20240318)(react-server-dom-webpack@18.3.0-canary-14898b6a9-20240318)(react@18.3.0-canary-14898b6a9-20240318)(vite@5.2.8)
+    specifier: 0.1.18-pre.0
+    version: 0.1.18-pre.0(react-dom@18.3.0-canary-14898b6a9-20240318)(react-server-dom-webpack@18.3.0-canary-14898b6a9-20240318)(react@18.3.0-canary-14898b6a9-20240318)(vite@5.2.8)
   react:
     specifier: 18.3.0-canary-14898b6a9-20240318
     version: 18.3.0-canary-14898b6a9-20240318
@@ -496,12 +496,12 @@ packages:
       mime-types: 2.1.35
     dev: true
 
-  /@hiogawa/react-server@0.1.17(react-dom@18.3.0-canary-14898b6a9-20240318)(react-server-dom-webpack@18.3.0-canary-14898b6a9-20240318)(react@18.3.0-canary-14898b6a9-20240318)(vite@5.2.8):
-    resolution: {integrity: sha512-KnhmJNkCYBsq4QFbOZbIYRabSb5wNROm8uObGHABLNzYeqpsC0SE8STDZNPPiupvJUoHfI6pl2LMANETo1FTyA==}
+  /@hiogawa/react-server@0.1.18-pre.0(react-dom@18.3.0-canary-14898b6a9-20240318)(react-server-dom-webpack@18.3.0-canary-14898b6a9-20240318)(react@18.3.0-canary-14898b6a9-20240318)(vite@5.2.8):
+    resolution: {integrity: sha512-AxdYjpeD8U1DEMDdGElCgHd0aTA03DUabnbhG3lXOguSvOnYpnj60dwkCOq3X2y1mxbEAj28bzWP1n/vmGqhbg==}
     peerDependencies:
-      react: 18.3.0-canary-14898b6a9-20240318
-      react-dom: 18.3.0-canary-14898b6a9-20240318
-      react-server-dom-webpack: 18.3.0-canary-14898b6a9-20240318
+      react: 19.0.0-canary-4c12339ce-20240408
+      react-dom: 19.0.0-canary-4c12339ce-20240408
+      react-server-dom-webpack: 19.0.0-canary-4c12339ce-20240408
       vite: '*'
     dependencies:
       '@tanstack/history': 1.26.3

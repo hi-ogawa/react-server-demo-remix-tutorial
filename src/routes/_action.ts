@@ -1,20 +1,17 @@
 "use server";
 
-import { ActionContext, redirect } from "@hiogawa/react-server/server";
+import { redirect, useActionContext } from "@hiogawa/react-server/server";
 import { fakeContacts } from "./_data";
 import { tinyassert } from "@hiogawa/utils";
 
-export async function actionCreateNewContact(this: ActionContext) {
-  this.revalidate = true;
+export async function actionCreateNewContact() {
+  useActionContext().revalidate = true;
   const contact = await fakeContacts.create({});
   throw redirect(`/contacts/${contact.id}/edit`);
 }
 
-export async function actionUpdateContact(
-  this: ActionContext,
-  formData: FormData,
-) {
-  this.revalidate = true;
+export async function actionUpdateContact(formData: FormData) {
+  useActionContext().revalidate = true;
   const data = Object.fromEntries(formData) as any;
   const contact = await fakeContacts.get(data.id);
   tinyassert(contact);
@@ -22,8 +19,8 @@ export async function actionUpdateContact(
   throw redirect(`/contacts/${contact.id}`);
 }
 
-export async function actoinFavorite(this: ActionContext, formData: FormData) {
-  this.revalidate = true;
+export async function actoinFavorite(formData: FormData) {
+  useActionContext().revalidate = true;
   const data = Object.fromEntries(formData) as any;
   const contact = await fakeContacts.get(data.id);
   tinyassert(contact);
@@ -33,11 +30,8 @@ export async function actoinFavorite(this: ActionContext, formData: FormData) {
   });
 }
 
-export async function actionDeleteContact(
-  this: ActionContext,
-  formData: FormData,
-) {
-  this.revalidate = true;
+export async function actionDeleteContact(formData: FormData) {
+  useActionContext().revalidate = true;
   const data = Object.fromEntries(formData) as any;
   const contact = await fakeContacts.get(data.id);
   tinyassert(contact);
