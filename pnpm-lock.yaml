@@ -6,17 +6,17 @@ settings:
 
 dependencies:
   '@hiogawa/react-server':
-    specifier: 0.1.18
-    version: 0.1.18(react-dom@18.3.0-canary-14898b6a9-20240318)(react-server-dom-webpack@18.3.0-canary-14898b6a9-20240318)(react@18.3.0-canary-14898b6a9-20240318)(vite@5.2.8)
+    specifier: 0.1.19
+    version: 0.1.19(react-dom@19.0.0-beta-4508873393-20240430)(react-server-dom-webpack@19.0.0-beta-4508873393-20240430)(react@19.0.0-beta-4508873393-20240430)(vite@5.2.8)
   react:
-    specifier: 18.3.0-canary-14898b6a9-20240318
-    version: 18.3.0-canary-14898b6a9-20240318
+    specifier: 19.0.0-beta-4508873393-20240430
+    version: 19.0.0-beta-4508873393-20240430
   react-dom:
-    specifier: 18.3.0-canary-14898b6a9-20240318
-    version: 18.3.0-canary-14898b6a9-20240318(react@18.3.0-canary-14898b6a9-20240318)
+    specifier: 19.0.0-beta-4508873393-20240430
+    version: 19.0.0-beta-4508873393-20240430(react@19.0.0-beta-4508873393-20240430)
   react-server-dom-webpack:
-    specifier: 18.3.0-canary-14898b6a9-20240318
-    version: 18.3.0-canary-14898b6a9-20240318(react-dom@18.3.0-canary-14898b6a9-20240318)(react@18.3.0-canary-14898b6a9-20240318)(webpack@5.91.0)
+    specifier: 19.0.0-beta-4508873393-20240430
+    version: 19.0.0-beta-4508873393-20240430(react-dom@19.0.0-beta-4508873393-20240430)(react@19.0.0-beta-4508873393-20240430)(webpack@5.91.0)
 
 devDependencies:
   '@hattip/adapter-node':
@@ -496,21 +496,21 @@ packages:
       mime-types: 2.1.35
     dev: true
 
-  /@hiogawa/react-server@0.1.18(react-dom@18.3.0-canary-14898b6a9-20240318)(react-server-dom-webpack@18.3.0-canary-14898b6a9-20240318)(react@18.3.0-canary-14898b6a9-20240318)(vite@5.2.8):
-    resolution: {integrity: sha512-2VIPFllAunUhrGcb3jnxc1niqjEKjueKoGrXQAu4FxEpd3WZaoTGZcewytS5jdgv8ChX+q3kin7RtwiA38Ex/g==}
+  /@hiogawa/react-server@0.1.19(react-dom@19.0.0-beta-4508873393-20240430)(react-server-dom-webpack@19.0.0-beta-4508873393-20240430)(react@19.0.0-beta-4508873393-20240430)(vite@5.2.8):
+    resolution: {integrity: sha512-vzZ5QnMwcne4r35fGciG3xdmWa0E/KdrH2rH/m+vn+vx9NgRKVYtgYz1OFXyCaUGTfJv1PNYGN8IMtNcZezuog==}
     peerDependencies:
-      react: 19.0.0-canary-4c12339ce-20240408
-      react-dom: 19.0.0-canary-4c12339ce-20240408
-      react-server-dom-webpack: 19.0.0-canary-4c12339ce-20240408
+      react: 19.0.0-beta-4508873393-20240430
+      react-dom: 19.0.0-beta-4508873393-20240430
+      react-server-dom-webpack: 19.0.0-beta-4508873393-20240430
       vite: '*'
     dependencies:
       '@tanstack/history': 1.26.3
       fast-glob: 3.3.2
       magic-string: 0.30.9
-      react: 18.3.0-canary-14898b6a9-20240318
-      react-dom: 18.3.0-canary-14898b6a9-20240318(react@18.3.0-canary-14898b6a9-20240318)
-      react-server-dom-webpack: 18.3.0-canary-14898b6a9-20240318(react-dom@18.3.0-canary-14898b6a9-20240318)(react@18.3.0-canary-14898b6a9-20240318)(webpack@5.91.0)
-      use-sync-external-store: 1.2.0(react@18.3.0-canary-14898b6a9-20240318)
+      react: 19.0.0-beta-4508873393-20240430
+      react-dom: 19.0.0-beta-4508873393-20240430(react@19.0.0-beta-4508873393-20240430)
+      react-server-dom-webpack: 19.0.0-beta-4508873393-20240430(react-dom@19.0.0-beta-4508873393-20240430)(react@19.0.0-beta-4508873393-20240430)(webpack@5.91.0)
+      use-sync-external-store: 1.2.0(react@19.0.0-beta-4508873393-20240430)
       vite: 5.2.8
     dev: false
 
@@ -1250,6 +1250,7 @@ packages:
 
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
+    dev: true
 
   /jsesc@2.5.2:
     resolution: {integrity: sha512-OYu7XEzjkCQ3C5Ps3QIZsQfNpqoJyZZA99wd9aWd05NCtC5pWOkShK2mkL6HXQR6/Cy2lbNdPlZBpuQHXE63gA==}
@@ -1274,13 +1275,6 @@ packages:
   /loader-runner@4.3.0:
     resolution: {integrity: sha512-3R/1M+yS3j5ou80Me59j7F9IMs4PXs3VqRrm0TU3AbKPxlmpoY1TNscJV/oGJXo8qCatFGTfDbY6W6ipGOYXfg==}
     engines: {node: '>=6.11.5'}
-    dev: false
-
-  /loose-envify@1.4.0:
-    resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
-    hasBin: true
-    dependencies:
-      js-tokens: 4.0.0
     dev: false
 
   /lru-cache@5.1.1:
@@ -1380,14 +1374,13 @@ packages:
       safe-buffer: 5.2.1
     dev: false
 
-  /react-dom@18.3.0-canary-14898b6a9-20240318(react@18.3.0-canary-14898b6a9-20240318):
-    resolution: {integrity: sha512-OFf18ypcXn0V6dOjGZoXQiRkqy+HiDAFV9xIReEhLdUfyhzRki7OuTlbLKSBl9Wc3YbJkeLoIfUIShgrTiBPDw==}
+  /react-dom@19.0.0-beta-4508873393-20240430(react@19.0.0-beta-4508873393-20240430):
+    resolution: {integrity: sha512-/j97ai1qF3c6O3XV0nVzzExPV/0U2v8M75Sq6ThXYxePCi33kAnm+xRsCDpZOZOrIjz6nurLU/FzzPZIzXVvKQ==}
     peerDependencies:
-      react: 18.3.0-canary-14898b6a9-20240318
+      react: 19.0.0-beta-4508873393-20240430
     dependencies:
-      loose-envify: 1.4.0
-      react: 18.3.0-canary-14898b6a9-20240318
-      scheduler: 0.24.0-canary-14898b6a9-20240318
+      react: 19.0.0-beta-4508873393-20240430
+      scheduler: 0.25.0-beta-4508873393-20240430
     dev: false
 
   /react-refresh@0.14.0:
@@ -1395,27 +1388,24 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react-server-dom-webpack@18.3.0-canary-14898b6a9-20240318(react-dom@18.3.0-canary-14898b6a9-20240318)(react@18.3.0-canary-14898b6a9-20240318)(webpack@5.91.0):
-    resolution: {integrity: sha512-MmdQVyifrCbmxQzILpLBS1nrS13g7vu6eL8K/bDIwvwyYxVC98VXYlHtez04NHPOUTeprFDOO9fzV8A9xv4Izw==}
+  /react-server-dom-webpack@19.0.0-beta-4508873393-20240430(react-dom@19.0.0-beta-4508873393-20240430)(react@19.0.0-beta-4508873393-20240430)(webpack@5.91.0):
+    resolution: {integrity: sha512-/rRIMqNoeReqyioWwfLyqu/qUfZ39YLXOfkhLrXOStzG2g7Q2a5DoLD0eZOcCIpvpWg+/QRw1xOGZLm75mK+Aw==}
     engines: {node: '>=0.10.0'}
     peerDependencies:
-      react: 18.3.0-canary-14898b6a9-20240318
-      react-dom: 18.3.0-canary-14898b6a9-20240318
+      react: 19.0.0-beta-4508873393-20240430
+      react-dom: 19.0.0-beta-4508873393-20240430
       webpack: ^5.59.0
     dependencies:
       acorn-loose: 8.4.0
-      loose-envify: 1.4.0
       neo-async: 2.6.2
-      react: 18.3.0-canary-14898b6a9-20240318
-      react-dom: 18.3.0-canary-14898b6a9-20240318(react@18.3.0-canary-14898b6a9-20240318)
+      react: 19.0.0-beta-4508873393-20240430
+      react-dom: 19.0.0-beta-4508873393-20240430(react@19.0.0-beta-4508873393-20240430)
       webpack: 5.91.0(esbuild@0.20.2)
     dev: false
 
-  /react@18.3.0-canary-14898b6a9-20240318:
-    resolution: {integrity: sha512-v7DaMx1oNRNNHjqS3htQ5ZHo3klcaX8qyN391ymlAJLVs6FR97q4YdvL7juB0Z1BO718JuYAxzDehozvwKZwUw==}
+  /react@19.0.0-beta-4508873393-20240430:
+    resolution: {integrity: sha512-//89udV7fhVq5pEzpNH7vlpmS5D4wDbPn0oif+G7vwDsuSks5yJGdqrE1uzn2CyFNL73FjV3/R3Pjyaxs+xnvg==}
     engines: {node: '>=0.10.0'}
-    dependencies:
-      loose-envify: 1.4.0
     dev: false
 
   /reusify@1.0.4:
@@ -1457,10 +1447,8 @@ packages:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
     dev: false
 
-  /scheduler@0.24.0-canary-14898b6a9-20240318:
-    resolution: {integrity: sha512-ifDO3bUdooS4OlxvGxMyoDEC/aq14MvJLDd0thjrUSZGeLJA7WBc+sr9NZxIxrXfVqMl1GTGGPwXqRJZDNW76w==}
-    dependencies:
-      loose-envify: 1.4.0
+  /scheduler@0.25.0-beta-4508873393-20240430:
+    resolution: {integrity: sha512-gk9vDoDOjTys0DpLgFll+hYk5gLhLnTipi81Pl+XSRtWkQnqQdjxLO2RF726t0g0jQ5tvwjLfBCgsvusgB6Luw==}
     dev: false
 
   /schema-utils@3.3.0:
@@ -1605,12 +1593,12 @@ packages:
     resolution: {integrity: sha512-H/A06tKD7sS1O1X2SshBVeA5FLycRpjqiBeqGKmBwBDBy28EnRjORxTNe269KSSr5un5qyWi1iL61wLxpd+ZOg==}
     dev: true
 
-  /use-sync-external-store@1.2.0(react@18.3.0-canary-14898b6a9-20240318):
+  /use-sync-external-store@1.2.0(react@19.0.0-beta-4508873393-20240430):
     resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      react: 18.3.0-canary-14898b6a9-20240318
+      react: 19.0.0-beta-4508873393-20240430
     dev: false
 
   /vite@5.2.8:
