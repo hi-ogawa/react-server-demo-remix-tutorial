@@ -1,6 +1,10 @@
-import { createError, type PageProps } from "@hiogawa/react-server/server";
-import { getContact } from "../../../_data";
-import { actionUpdateContact } from "../../../_action";
+import {
+  createError,
+  redirect,
+  useActionContext,
+  type PageProps,
+} from "@hiogawa/react-server/server";
+import { fakeContacts, getContact } from "../../../_data";
 import { BackButton } from "./_client";
 
 export default async function EditContact(props: PageProps) {
@@ -10,7 +14,16 @@ export default async function EditContact(props: PageProps) {
   }
 
   return (
-    <form action={actionUpdateContact} key={contact.id} id="contact-form">
+    <form
+      action={async (formData: FormData) => {
+        "use server";
+        useActionContext().revalidate = true;
+        await fakeContacts.set(contact.id, Object.fromEntries(formData));
+        throw redirect(`/contacts/${contact.id}`);
+      }}
+      key={contact.id}
+      id="contact-form"
+    >
       <input type="hidden" name="id" value={contact.id} />
       <p>
         <span>Name</span>
