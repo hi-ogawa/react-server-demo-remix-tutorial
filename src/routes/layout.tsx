@@ -1,7 +1,10 @@
 import { Link, LinkForm } from "@hiogawa/react-server/client";
-import { getContacts } from "./_data";
-import { actionCreateNewContact } from "./_action";
-import type { LayoutProps } from "@hiogawa/react-server/server";
+import { fakeContacts, getContacts } from "./_data";
+import {
+  redirect,
+  useActionContext,
+  type LayoutProps,
+} from "@hiogawa/react-server/server";
 import { GlobalPendingOverlay } from "./_client";
 
 export default async function Layout(props: LayoutProps) {
@@ -38,7 +41,7 @@ export default async function Layout(props: LayoutProps) {
               />
               <div aria-hidden hidden={true} id="search-spinner" />
             </LinkForm>
-            <form action={actionCreateNewContact}>
+            <form action={createNewContact}>
               <button type="submit">New</button>
             </form>
           </div>
@@ -78,4 +81,11 @@ export default async function Layout(props: LayoutProps) {
       </body>
     </html>
   );
+}
+
+async function createNewContact() {
+  "use server";
+  useActionContext().revalidate = true;
+  const contact = await fakeContacts.create({});
+  throw redirect(`/contacts/${contact.id}/edit`);
 }
