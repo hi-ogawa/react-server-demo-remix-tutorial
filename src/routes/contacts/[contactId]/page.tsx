@@ -1,7 +1,11 @@
-import { createError, type PageProps } from "@hiogawa/react-server/server";
-import { getContact, type ContactRecord } from "../../_data";
+import {
+  createError,
+  useActionContext,
+  type PageProps,
+} from "@hiogawa/react-server/server";
+import { fakeContacts, getContact, type ContactRecord } from "../../_data";
 import { Link } from "@hiogawa/react-server/client";
-import { actionDeleteContact, actoinFavorite } from "../../_action";
+import { actionDeleteContact } from "../../_action";
 
 export default async function Contact(props: PageProps) {
   const contact = await getContact(props.params["contactId"]);
@@ -61,9 +65,18 @@ export default async function Contact(props: PageProps) {
 function Favorite(props: { contact: ContactRecord }) {
   // TODO: optimistic
   const favorite = props.contact.favorite;
+  const id = props.contact.id;
 
   return (
-    <form action={actoinFavorite}>
+    <form
+      action={async (formData: FormData) => {
+        "use server";
+        useActionContext().revalidate = true;
+        await fakeContacts.set(id, {
+          favorite: formData.get("favorite") === "true",
+        });
+      }}
+    >
       <input type="hidden" name="id" value={props.contact.id} />
       <button
         aria-label={favorite ? "Remove from favorites" : "Add to favorites"}
