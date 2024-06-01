@@ -4,12 +4,6 @@ import { redirect, useActionContext } from "@hiogawa/react-server/server";
 import { fakeContacts } from "./_data";
 import { tinyassert } from "@hiogawa/utils";
 
-export async function actionCreateNewContact() {
-  useActionContext().revalidate = true;
-  const contact = await fakeContacts.create({});
-  throw redirect(`/contacts/${contact.id}/edit`);
-}
-
 export async function actionUpdateContact(formData: FormData) {
   useActionContext().revalidate = true;
   const data = Object.fromEntries(formData) as any;
